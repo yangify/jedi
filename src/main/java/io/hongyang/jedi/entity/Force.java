@@ -1,4 +1,4 @@
-package io.hongyang.jedi.force;
+package io.hongyang.jedi.entity;
 
 import java.io.Serializable;
 import javax.validation.constraints.NotBlank;

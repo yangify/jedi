@@ -1,5 +1,7 @@
-package io.hongyang.jedi.force;
+package io.hongyang.jedi.controller;
 
+import io.hongyang.jedi.entity.Force;
+import io.hongyang.jedi.service.ForceService;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.AllArgsConstructor;
