@@ -15,6 +15,12 @@ public class ForceService {
 
   private ForceRepository forceRepository;
 
+  public Force getForce(String id) {
+    Optional<Force> retrievedForce = forceRepository.findById(id);
+    if (retrievedForce.isEmpty()) throw new ForceNotFoundException(id);
+    return retrievedForce.get();
+  }
+
   public List<Force> getForces() {
     return (List<Force>) forceRepository.findAll();
   }
@@ -23,17 +29,21 @@ public class ForceService {
     return forceRepository.save(force);
   }
 
-  public void deleteForces() {
-    forceRepository.deleteAll();
-  }
-
   public Force updateForce(Force source) {
-    Optional<Force> nullableForce = forceRepository.findById(source.getId());
-    if (nullableForce.isEmpty()) throw new ForceNotFoundException(source);
+    Optional<Force> retrievedForce = forceRepository.findById(source.getId());
+    if (retrievedForce.isEmpty()) throw new ForceNotFoundException(source);
 
-    Force destination = nullableForce.get();
+    Force destination = retrievedForce.get();
     ForceMapper.INSTANCE.updateForce(source, destination);
 
     return forceRepository.save(destination);
+  }
+
+  public void deleteForce(String id) {
+    forceRepository.deleteById(id);
+  }
+
+  public void deleteForces() {
+    forceRepository.deleteAll();
   }
 }

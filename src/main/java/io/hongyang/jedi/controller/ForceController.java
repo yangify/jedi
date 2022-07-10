@@ -19,6 +19,11 @@ public class ForceController {
     return forceService.getForces();
   }
 
+  @GetMapping("/{id}")
+  Force getForce(@PathVariable String id) {
+    return forceService.getForce(id);
+  }
+
   @PostMapping
   Force updateForce(@Valid @RequestBody Force force) {
     return forceService.updateForce(force);
@@ -32,5 +37,10 @@ public class ForceController {
   @DeleteMapping
   void deleteForces() {
     forceService.deleteForces();
+  }
+
+  @DeleteMapping("/{id}")
+  void deleteForce(@PathVariable String id) {
+    forceService.deleteForce(id);
   }
 }
