@@ -1,6 +1,7 @@
 package io.hongyang.jedi.force;
 
 import java.util.List;
+import javax.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +18,12 @@ public class ForceController {
   }
 
   @PostMapping
-  Force updateForce(@RequestBody Force force) {
+  Force updateForce(@Valid @RequestBody Force force) {
     return forceService.updateForce(force);
   }
 
   @PutMapping
-  Force createForce(@RequestBody Force force) {
+  Force createForce(@Valid @RequestBody Force force) {
     return forceService.createForce(force);
   }
 
