@@ -2,8 +2,8 @@ package io.hongyang.jedi.service;
 
 import io.hongyang.jedi.entity.Force;
 import io.hongyang.jedi.exception.ForceNotFoundException;
-import io.hongyang.jedi.mapper.ForceMapper;
 import io.hongyang.jedi.repository.ForceRepository;
+import io.hongyang.jedi.utility.mapper.ForceMapper;
 import java.util.List;
 import java.util.Optional;
 import lombok.AllArgsConstructor;
@@ -35,7 +35,6 @@ public class ForceService {
 
     Force destination = retrievedForce.get();
     ForceMapper.INSTANCE.updateForce(source, destination);
-
     return forceRepository.save(destination);
   }
 

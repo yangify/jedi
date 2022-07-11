@@ -9,6 +9,6 @@ public class ForceNotFoundException extends RuntimeException {
   }
 
   public ForceNotFoundException(String id) {
-    super("Force with id: " + id + " does not exist");
+    super(String.format("Force with id %s not found", id));
   }
 }

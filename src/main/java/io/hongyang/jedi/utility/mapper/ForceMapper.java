@@ -1,4 +1,4 @@
-package io.hongyang.jedi.mapper;
+package io.hongyang.jedi.utility.mapper;
 
 import io.hongyang.jedi.entity.Force;
 import org.mapstruct.BeanMapping;
