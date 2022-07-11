@@ -14,14 +14,14 @@ public class ForceController {
 
   private ForceService forceService;
 
-  @GetMapping
-  List<Force> getForces() {
-    return forceService.getForces();
-  }
-
   @GetMapping("/{id}")
   Force getForce(@PathVariable String id) {
     return forceService.getForce(id);
+  }
+
+  @GetMapping
+  List<Force> getForces() {
+    return forceService.getForces();
   }
 
   @PostMapping
@@ -34,13 +34,13 @@ public class ForceController {
     return forceService.createForce(force);
   }
 
-  @DeleteMapping
-  void deleteForces() {
-    forceService.deleteForces();
-  }
-
   @DeleteMapping("/{id}")
   void deleteForce(@PathVariable String id) {
     forceService.deleteForce(id);
+  }
+
+  @DeleteMapping
+  void deleteForces() {
+    forceService.deleteForces();
   }
 }
